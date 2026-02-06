@@ -72,4 +72,4 @@ The sites tells me that the information in data.txt and is encoded with base64. 
 -----
 level 11
 
-
+Another base64 encoded, this time the text has been rotated 13 positions, maybe this time its a combination of base64 and another command.
