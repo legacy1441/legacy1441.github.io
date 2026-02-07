@@ -4,21 +4,21 @@ Level 1
 
 The only file in this level was found using 'ls'. 'cat readme' gave me the password, this one was easy due to prior knowledge.
 
-<img width="562" height="99" alt="Screenshot 2026-02-06 at 9 10 09 AM" src="https://github.com/user-attachments/assets/d93f2fe6-bce5-43c7-899f-92e539c7983e" />
+<img width="816" height="223" alt="Screenshot 2026-02-06 at 6 27 36 PM" src="https://github.com/user-attachments/assets/0392c6bc-e672-4c34-8de5-91e4980acfae" />
 
 -----
 Level 2 
 
 This had to do with a file named "-". This was the first time i encountered this kind of file so i had to look it up, i ended up using the command "./-"    This allowed me to open the file and give me the password. I had also tried usng 'cat -' which didnt work.
 
-<img width="562" height="99" alt="Screenshot 2026-02-06 at 9 10 09 AM" src="https://github.com/user-attachments/assets/baf4745d-d391-4c4f-af1e-3f3938538b98" />
+<img width="830" height="144" alt="Screenshot 2026-02-06 at 6 30 10 PM" src="https://github.com/user-attachments/assets/120179fe-ddf5-4f35-9224-5bdc9070f4dc" />
 
 -----
 Level 3
 
 used 'ls' to see all files and what appeared was "--spaces in this file--". The chalange was opening this files with the strange spaces in the name. 'cat' didnt work, './--spaces in this filename--' didnt work because kali thought i was trying to enter a command becxause of the --. I learned about putting this kind of file name in "", so the solution was cat ./"--spaces in this filename--".
 
-<img width="562" height="99" alt="Screenshot 2026-02-06 at 9 10 09 AM" src="https://github.com/user-attachments/assets/c3770133-cb93-4e99-8ac0-547a9f599e73" />
+<img width="827" height="152" alt="Screenshot 2026-02-06 at 6 34 09 PM" src="https://github.com/user-attachments/assets/023c1510-ae6e-48cd-b712-317a0deee2cf" />
 
 -----
 level 4
@@ -26,23 +26,23 @@ level 4
 'ls' showed 'inhere' so i tried to open it and it came up as a directory, so i used 'cd inhere' and used 'ls' again to show the files, there were -files 00 through 09
 Im sure was a better was but i resorted to using "cat ./"-file00" " on every file until i found the password.
 
-<img width="562" height="99" alt="Screenshot 2026-02-06 at 9 10 09 AM" src="https://github.com/user-attachments/assets/e57448e8-31a7-48d0-81c5-8c3ba2560862" />
+<img width="843" height="202" alt="Screenshot 2026-02-06 at 6 47 17 PM" src="https://github.com/user-attachments/assets/96d3f2da-0c52-4814-b613-76208acfbe4b" />
 
 -----
 level 5
 
 Again the directory inhere was present. 'cd inhere' -> 'ls' this resulted in 15 over directories "maybehere". i opened a few of the directories to see what was inside, there was 5 files in each one. i knew that going through every file one by one was taking too long and there should be a way for me to find excatly what i was looking for. The site for overthewire gave me the size of the file, 1033 bytes so i needed to use the correct 'find' command. I found that using '-size 1033c' could search for the file i needed, bu i still needed it to search the entire inhere directory. 'find ~/inhere/ -size 1033c' gave me the file .file2 in maybehere07 which gave me the password. The solution was 'cat ./maybehere07/.fil2'. (when i went back to get a ss i could not for the life of me remember the solution)
 
-<img width="562" height="99" alt="Screenshot 2026-02-06 at 9 10 09 AM" src="https://github.com/user-attachments/assets/f01b252b-14f5-4d02-8030-cb84912d2e34" />
+<img width="827" height="561" alt="Screenshot 2026-02-06 at 6 57 12 PM" src="https://github.com/user-attachments/assets/d4148655-f743-47a7-8879-3a3a5a2fd23f" />
 
 -----
 level 6
 
 logged in and 'ls' 'cd' didnt come up with anything, so i used 'ls -la' that i learned from a peer. This showed a table of files along with the permissions, ".bash_logout" ".basgrc" ".profile" all has a lot of information but not sure if its relevant yet. There were 2 files that were named "." and "..". i used 'file . / ..' and they are directories. i used 'cd ..' and got into the home directory, this has many other directories so i have to find a way to comb through them all. The information the site gives me is 33 bytes, owned by user bandit7, and owned by group bandit6. I need to an 'find' command that can use all this information. I used 'find -user bandit7 -group bandit6 -size 33c' which led me to the file "./bandit5/inhere". 'cd bandit5' found the directory "inhere" but cant get in, permission denied. I learned about how to use the 'find' command when having more perameters, in this case i needed to find, user, group, file size, and text so 'find / -user bandit7 -group bandit6 -size 33c -exec grep -a . {} \;' worked to find the password. -exec is used to find a file i can access
 
-<img width="3360" height="2100" alt="image" src="https://github.com/user-attachments/assets/3aa7dfda-cf4e-43d2-a73d-271ca9a11fd3" />
+<img width="1648" height="1825" alt="image" src="https://github.com/user-attachments/assets/fe680015-a404-4077-bf14-827dcb8a9cf6" />
 
-<img width="3360" height="2100" alt="image" src="https://github.com/user-attachments/assets/31b8e83e-8803-4089-a18a-83eff2822693" />
+<img width="821" height="918" alt="Screenshot 2026-02-06 at 7 09 03 PM" src="https://github.com/user-attachments/assets/2a052f01-16c7-4ff3-bc3b-248091873773" />
 
 -----
 level 7
