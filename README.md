@@ -1,6 +1,6 @@
 OVERTHEWIRE 
 ------
-Level 1
+Level 1 
 
 The only file in this level was found using 'ls'. 'cat readme' gave me the password, this one was easy due to prior knowledge.
 
